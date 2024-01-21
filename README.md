@@ -9,7 +9,7 @@
 	- File extension for typescript should be .ts or .tsx
 	- A project can have both JS and TS files as TS files will convert to JS after compilation
 	- A TS config file can be added to a project to configure TS settings for the project
-	- Its recommended for new projects to use TS from the start but existing JS based projects can be migrated in phase to TS
+	- It is recommended for new projects use TS from the start but existing JS-based projects can be migrated in phase to TS
 
 - Points we will cover:
 	- Primitive Types: number, string, boolean
@@ -20,7 +20,7 @@
 - Primitive Types
 	- Add a colon(:) after variable name and assign a type
 	- Types are in lowercase
-	- If a different type of value is assigned to the variable like string is assigned to a number variable then Typescript compiler will give error while compiling, however depending on your TS Config, output JS file will be created.
+	- If a different type of value is assigned to the variable like string is assigned to a number variable then Typescript compiler will give an error while compiling, however depending on your TS Config, an output JS file will be created.
 
 ```javascript
 // Primitive Types
@@ -32,7 +32,7 @@ let isGraduate: boolean = true;
 - Arrays
 	- If you define an array in JS, it allows values of multiple types to be stored like
 		- let smapleArray = ['One', 2, true];
-	- In TS, we need to specify the type of array, then only value of that type can be stored.
+	- In TS, we need to specify the type of array, and then only the value of that type can be stored.
 
 ```javascript
 // Arrays
@@ -41,11 +41,11 @@ let salaries: number[] = [12000000, 14000000, 16000000];
 ```
 
 - Objects
-	- An object is a combination of multiple Primitive types with multiple level of nesting.
-	- With static typing in object with basically mean to specify the structure of the object.
+	- An object is a combination of multiple Primitive types with multiple levels of nesting.
+	- With static typing in object with basically means to specify the structure of the object.
 
 ```javascript
-// Object in JS doesn't have fixed structure
+// Object in JS doesn't have a fixed structure
 let person = {
 	name: 'John Doe',
 	age: 25
@@ -58,20 +58,20 @@ person = {
 ```
 
 ```javascript
-// Object in TS have a well defined structure called as object type desciption
-// Here we are telling TS that person object have 2 properties name of string and age of type number 
+//Objects in TS have a well-defined structure called as object type description
+// Here we are telling TS that a person object has 2 properties name of string and age of type number 
 let person : {
 	name: string;
 	age: number;
 };
 
-// Allowed because it matches the object type desciption
+// Allowed because it matches the object type description
 person = {
 	name: 'John Doe',
 	age: 25
 };
 
-// Not allowed as isGraduate is not defined in the object type desciption
+// Not allowed as isGraduate is not defined in the object type description
 person = {
 	isGraduate: false
 };
@@ -87,7 +87,7 @@ employees = [ { name: 'John Doe', age: 25},
 ```
 
 - Union Types
-	- If we need to assign more than one type to variable then we use the feature union type
+	- If we need to assign more than one type to a variable then we use the feature union type
 ```javascript
 // Here we are saying that sampleVariable can be a string or number
 let sampleVariable: string | number = 'John Doe';
@@ -106,10 +106,10 @@ function logError(errorObject : any){
 ```
 
 - Type Alias
-	- Create a custom type that are common in the application
+	- Create a custom type that is common in the application
 	- Use the TS **type** keyword to define a custom type
 	- Best practice to use Pascal casing for types
-	- A common practice is to create a folder as **types** in the project and have all common types used accoss application as seperate files or single file in this folder
+	- A common practice is to create a folder as **types** in the project and have all common types used across application as separate files or single files in this folder
 
 ```javascript
 // Create a custom type person
@@ -128,7 +128,7 @@ let employess: Person[];
 
 - Interfaces
 	- An interface declaration is another way to name an object type
-	- Type Alias and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be extended to add new properties vs an interface which is always extendable.	
+	- Type Alias and interfaces are very similar, and in many cases, you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be extended to add new properties vs an interface is always extendable.	
 
 ```javascript
 // Create an interface person
@@ -158,7 +158,7 @@ bear.honey;
 
 
 - Function types
-	- Types can be defined for Function parameters and return value.
+	- Types can be defined for Function parameters and return values.
 
 ```javascript
 function getSalary(salaryPerDay: number, noOfWorkingDays: number) : number {
@@ -195,16 +195,16 @@ async function convertToPerson(name: string, age: number) : Promise<Person> {
 ```
 
 - Type Inference
-	- If the variable is declared and initialized at the same time, type doesn't need to be defined as TS will infer the best possible type based on the initialization
+	- If the variable is declared and initialized at the same time, the type doesn't need to be defined as TS will infer the best possible type based on the initialization
 ```javascript
 // In the below expample TS will infer that name variable will be string based on the assigned value. So, we don't need to explicitly add ": string" in the declaration
 let name = 'John Doe';
 ```
 
 - Type Assertions
-	- Sometimes you will have information about the type of a value then that TypeScript infer.
+	- Sometimes you will have information about the type of a value then that TypeScript infers.
 	- For example, if you’re using document.getElementById, TypeScript only knows that this will return some kind of HTMLElement, but you might know that your page will always have an HTMLCanvasElement with a given ID.
-	- TypeScript only allows type assertions which convert to a more specific or less specific version of a type. 	
+	- TypeScript only allows type assertions that convert to a more specific or less specific version of a type. 	
 
 ```javascript
 // You can use a type assertion to specify a more specific type
@@ -215,8 +215,8 @@ const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
 ```
 
 - Type null and undefined
-	- null and undefined are also 2 types in TS
-	- any variable as per take a value null or undefined if its defined with these types
+	- null and undefined are also 2 types of TS
+	- any variable as per take a value null or undefined if it's defined with these types
 	- Postfix !: TypeScript also has a special syntax for removing null and undefined from a type without doing any explicit checking.
 
 ```javascript
