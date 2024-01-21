@@ -1,4 +1,4 @@
-# Under 30 minutes: Typescript (TS)#
+# Under 30 minutes: Typescript (TS) #
 
 - Official Website: [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 
