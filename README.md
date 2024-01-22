@@ -356,7 +356,7 @@ npm install typescript
 npm install -g typescript
 ```
 
-- Create a file person.ts and below content
+- Create a file person.ts with below content
 ```Javascript
 interface Person {
     firstName: string;
