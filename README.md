@@ -159,6 +159,7 @@ bear.honey;
 
 - Function types
 	- Types can be defined for Function parameters and return values.
+	- Optional Parameters can be defined with '?' keyword
 
 ```javascript
 function getSalary(salaryPerDay: number, noOfWorkingDays: number) : number {
@@ -191,6 +192,14 @@ async function convertToPerson(name: string, age: number) : Promise<Person> {
 		name,
 		age
 	};
+}
+
+//Function with optional parameter
+function sum(firstNumber: number, secondNumber: number,  thridOptionalNumber?: number): number {
+  if (typeof thridOptionalNumber !== "undefined") {
+    return firstNumber + secondNumber + thridOptionalNumber;
+  }
+  return firstNumber + secondNumber;
 }
 ```
 
@@ -237,5 +246,141 @@ function liveDangerously(x?: number | null) {
 ```
 
 
+- Generics
+	- If an oprations supports variety of data types rather than a single data type, generics is a way.
+	- It can used in functions, types or interfaces
+	- Generics use a special kind of type variable **<T>** that denotes types.
 
+```javascript
+//Here T can be any data type. Exact type is passed during function call
+function getItems<T>(items : T[] ) : T[] {  
+    return new Array<T>().concat(items);  
+}
+
+// Here T is getting passed as number
+let arrNumber = getItems<number>([10, 20, 30]);
+
+// Here T is getting passed as string
+let arrString = getItems<string>(["Hello", "JavaTpoint"]);
+
+//Here T can be either number or string
+let arrHybrid = getItems<number | string>([10, "Hello"]);
+
+
+//Generics in object
+interface Box<Type> {
+  contents: Type;
+}
+
+// during  initialization of object we provide the exact type to be realized
+let boxofStrings: Box<string> = { contents: "hello" };
+let boxofNumbers: Box<number> = { contents: "123" };
+```
+
+- Classes
+	- TypeScript offers full support for the class keyword introduced in ES2015.
+	- Classes contain properties and methods
+	- While using typescript, define the type of each property and methosd
+	- A Class can extend from another class
+	- TypeScript can be used to control whether certain methods or properties are visible to code outside the class.
+		- Pulic: The default visibility of class members is public. A public member can be accessed anywhere
+		- Protected: Protected members are only visible to derived of the class they’re declared in.
+		- Prvate: Only visible within the same class
+
+
+```javascript
+class Point {
+  x = 10;
+  y = 10;
  
+  scale(n: number): void {
+    this.x *= n;
+    this.y *= n;
+  }
+}
+```
+
+```javascript
+ //A derived class has all the properties and methods of its base class, and can also define additional members.
+class Animal {
+  move(steps: number) {
+    console.log("Moving steps:" + steps);
+  }
+}
+ 
+class Dog extends Animal {
+  woof(times: number) {
+    for (let i = 0; i < times; i++) {
+      console.log("woof!");
+    }
+  }
+}
+ 
+const dogObject = new Dog();
+// Base class method
+dogObject.move(2);
+// Derived class method
+dogObject.woof(3);
+```
+
+```javascript
+//Pulic: The default visibility of class members is public. A public member can be accessed anywhere
+//Protected: Protected members are only visible to derived of the class they’re declared in.
+//Prvate: Only visible within the same class
+class Greeter {
+  private helloText: string = "Hello, ";
+  public greet(name: string) {
+    console.log("Hello, " + name);
+  }
+
+  protected getName() {
+    return "hi";
+  }
+}
+```
+
+- There are a lot of other utility types which you can find [here](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+
+Creating your first TypeScript App
+- Create a folder and start a new node app
+```console
+npm init 
+```
+- Install TypeScript
+```console
+npm install typescript
+```
+
+- Install TypeScript
+```console
+npm install -g typescript
+```
+
+- Create a file person.ts and below content
+```Javascript
+interface Person {
+    firstName: string;
+    lastName: string;
+  }
+   
+function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+ 
+let samplePerson: Person = { firstName: "John", lastName: "Doe" };
+console.log(greeter(samplePerson));
+```
+
+- Compile TypeScript
+```console
+tsc person.ts
+```
+
+- Output Javascript file
+```Javascript
+function greeter(person) {
+	return "Hello, " + person.firstName + " " + person.lastName;
+}
+var samplePerson = { firstName: "John", lastName: "Doe" };
+console.log(greeter(samplePerson));
+```
