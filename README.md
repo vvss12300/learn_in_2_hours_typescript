@@ -247,8 +247,8 @@ function liveDangerously(x?: number | null) {
 
 
 - Generics
-	- If an oprations supports variety of data types rather than a single data type, generics is a way.
-	- It can used in functions, types or interfaces
+	- If an operation supports a variety of data types rather than a single data type, generics is a way.
+	- It can used in functions, types, or interfaces
 	- Generics use a special kind of type variable **<T>** that denotes types.
 
 ```javascript
@@ -257,13 +257,13 @@ function getItems<T>(items : T[] ) : T[] {
     return new Array<T>().concat(items);  
 }
 
-// Here T is getting passed as number
+// Here T is getting passed as a number
 let arrNumber = getItems<number>([10, 20, 30]);
 
-// Here T is getting passed as string
+// Here T is getting passed as a string
 let arrString = getItems<string>(["Hello", "JavaTpoint"]);
 
-//Here T can be either number or string
+//Here T can be either a number or a string
 let arrHybrid = getItems<number | string>([10, "Hello"]);
 
 
@@ -280,12 +280,12 @@ let boxofNumbers: Box<number> = { contents: "123" };
 - Classes
 	- TypeScript offers full support for the class keyword introduced in ES2015.
 	- Classes contain properties and methods
-	- While using typescript, define the type of each property and methosd
+	- While using typescript, define the type of each property and method
 	- A Class can extend from another class
 	- TypeScript can be used to control whether certain methods or properties are visible to code outside the class.
-		- Pulic: The default visibility of class members is public. A public member can be accessed anywhere
+		- Public: The default visibility of class members is public. A public member can be accessed anywhere
 		- Protected: Protected members are only visible to derived of the class they’re declared in.
-		- Prvate: Only visible within the same class
+		- Private: Only visible within the same class
 
 
 ```javascript
@@ -324,9 +324,9 @@ dogObject.woof(3);
 ```
 
 ```javascript
-//Pulic: The default visibility of class members is public. A public member can be accessed anywhere
+//Public: The default visibility of class members is public. A public member can be accessed anywhere
 //Protected: Protected members are only visible to derived of the class they’re declared in.
-//Prvate: Only visible within the same class
+//Private: Only visible within the same class
 class Greeter {
   private helloText: string = "Hello, ";
   public greet(name: string) {
