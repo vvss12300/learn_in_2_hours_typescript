@@ -1,4 +1,4 @@
-# Learn under 2 hours: TypeScript (TS) #
+# Learn in 2 hours: TypeScript (TS) #
 
 - Official Website: [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 
