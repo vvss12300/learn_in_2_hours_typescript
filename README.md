@@ -11,6 +11,7 @@
 	- A project can have both JS and TS files as TS files will convert to JS after compilation
 	- A TS config file can be added to a project to configure TS settings for the project
 	- It is recommended that new projects use TS from the start but existing JS-based projects can be migrated in phases
+ 	- Most of the commonly used JS frameworks and libraries like Angular, React provide TypeScript support. 
 
 <br />
 
