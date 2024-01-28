@@ -18,6 +18,7 @@
 	- Primitive Types: number, string, boolean
 	- Complex Types: Arrays and Objects
 	- Union Types
+	- Enums
 	- Special Type **any**
 	- Type Alias
 	- Interfaces
@@ -117,16 +118,48 @@ sampleVariable = 10;
 
 <br />
 
+- **Enums**
+	- If your are already familiar with any other high level launguage like Java or C#, you might be already familar with Enums
+	- There is no direct way to define enums in JavaScript
+	- Enums in TypeScript are usually used to represent a fixed number of options for a given value.
+	- Enums are defined with the enum keyword and then the list of applicable values
+
+```javascript
+// Defination
+enum Direction {
+  North,
+  East,
+  South,
+  West,
+};
+
+// Usage
+var currentDirection = Direction.East;
+
+// We can also assign a value to each member of enum
+enum Direction {
+  North = 0,
+  East = 1,
+  South = 2,
+  West = 3,
+};
+
+//You can assign any value to the member just those has to be unique for each member
+```
+
+<br />
+
 - Special Type **any**
 	- If a variable is defined with type **any** in the TS, it means any value can be stored in it
 	- It is highly discouraged to use any if the type is known.
 
-
 ```javascript
-function logError(errorObject : any){
-	console.log(errorObject);
-}
+// Here we are saying that sampleVariable can be a string or number
+let sampleVariable: string | number = 'John Doe';
+sampleVariable = 10;
 ```
+
+<br />
 
 - **Type Alias**
 	- Create a custom type that is common in the application
